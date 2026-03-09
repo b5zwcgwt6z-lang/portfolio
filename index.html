@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-ibm-plex-sans@1.1.13/index.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
-    <!-- 애니메이션 라이브러리 -->
+    <!-- 애니메이션 및 슬라이더 라이브러리 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 
     <!-- 스타일 및 스크립트 연결 -->
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <script src="js/script.js?v=1.1" defer></script>
 </head>
 <body>
     <div class="mouse-dot"></div>
@@ -24,7 +26,7 @@
 
     <header class="header">
         <div class="inner row">
-            <a href="/" class="logo">최승아</a>
+            <a href="/" class="logo">Portfolio</a>
             <ul class="nav-menu">
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT</a></li>
@@ -42,13 +44,16 @@
             <div class="inner hero-flex">
                 <div class="hero-left">
                     <span class="tag">UI/UX SPECIALIST</span>
-                    <h1 class="main-title">최승아<br>Portfolio</h1>
+                    <h1 class="main-title">최승아<br>포트폴리오</h1>
                     <p class="hero-desc">사용자의 일상에 가치를 더하는<br>디자인을 합니다.</p>
                 </div>
                 <div class="hero-right">
-                    <div class="main-img-box">
-                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/78e3347d0ef9d6ed2888f7276f7f3c5c-rhvy5oeymuvlvabuabqm5h5lmpsamuvb09gfcb2vmo.avif">
-                        <div class="img-badge b-top">IMPACTFUL</div>
+                    <div class="main-img-wrapper">
+                        <div class="main-img-box">
+                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/78e3347d0ef9d6ed2888f7276f7f3c5c-rhvy5oeymuvlvabuabqm5h5lmpsamuvb09gfcb2vmo.avif">
+                        </div>
+                        <div class="img-badge b-top">UI/UX</div>
+                        <div class="img-badge b-mid">MINIMALIST</div>
                         <div class="img-badge b-bottom">CREATIVE</div>
                     </div>
                 </div>
@@ -60,7 +65,7 @@
             <div class="inner row">
                 <div class="about-content">
                     <span class="label">ABOUT ME</span>
-                    <h2 class="title">Passion for Detail</h2>
+                    <h2 class="title">최승아, SeungAh Choi</h2>
                     <p class="txt">6개월 차 신입 디자이너로서, 픽셀 하나하나의 디테일에 집중합니다. 복잡한 문제를 단순하게 풀어내는 과정에서 즐거움을 느낍니다.</p>
                     <div class="skill-list">
                         <span class="skill-item">Figma</span>
@@ -71,6 +76,38 @@
                 <div class="about-visual">
                     <div class="rounded-img">
                         <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2-1. 서비스 섹션 (인터랙티브 버전) -->
+        <section id="services" class="services">
+            <div class="inner row">
+                <div class="service-left">
+                    <span class="label">SERVICES</span>
+                    <h2 class="title">What I Can Do</h2>
+                    <div class="service-list">
+                        <div class="service-item active" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg">
+                            <span class="s-num">01</span>
+                            <h3>UI/UX Design</h3>
+                            <p>사용자 중심의 직관적이고 아름다운 인터페이스를 설계합니다.</p>
+                        </div>
+                        <div class="service-item" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg">
+                            <span class="s-num">02</span>
+                            <h3>Branding</h3>
+                            <p>브랜드의 가치를 시각적으로 전달하는 고유한 아이덴티티를 만듭니다.</p>
+                        </div>
+                        <div class="service-item" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg">
+                            <span class="s-num">03</span>
+                            <h3>Web Publishing</h3>
+                            <p>디자인을 코드로 완벽하게 구현하여 생동감 있는 웹을 만듭니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-right">
+                    <div class="service-img-box">
+                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" id="target-service-img">
                     </div>
                 </div>
             </div>
@@ -138,18 +175,80 @@
             </div>
         </section>
 
-        <!-- 푸터 -->
+        <!-- 5. 캠퍼스 라이프 섹션 (Swiper 추가) -->
+        <section id="campus" class="campus">
+            <div class="inner">
+                <span class="label">CAMPUS LIFE</span>
+                <h2 class="title">Moments in School</h2>
+                
+                <div class="swiper campus-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- 슬라이드 6개 이상 추가 -->
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-1.jpg" alt="1"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-2.jpg" alt="2"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-3.jpg" alt="3"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-4.jpg" alt="4"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" alt="5"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg" alt="6"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg" alt="7"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg" alt="8"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg" alt="9"></div></div>
+                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg" alt="10"></div></div>
+                    </div>
+                    <!-- 페이징/네비게이션 -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 푸터 섹션 -->
         <footer class="footer">
             <div class="inner">
-                <div class="big-name">최승아</div>
-                <div class="footer-row">
-                    <div class="footer-sns">
-                        <a href="#">INSTAGRAM</a>
-                        <a href="#">BEHANCE</a>
-                    </div>
-                    <a href="#home" class="btn-top">BACK TO TOP ↑</a>
+                <div class="footer-contact">
+                    <span class="label">CONTACT</span>
+                    <h2 class="contact-title">Ready to start a project?</h2>
+                    <a href="mailto:hello@seungah.com" class="big-email">LET'S TALK <span class="arrow">↗</span></a>
                 </div>
-                <p class="copy">© 2026 CHOI SEUNG AH. ALL RIGHTS RESERVED.</p>
+
+                <div class="footer-card">
+                    <div class="card-top">
+                        <div class="profile-main">
+                            <div class="profile-img">
+                                <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" alt="Seungah">
+                            </div>
+                            <div class="profile-txt">
+                                <span class="profile-id">@seungah_design</span>
+                                <h3 class="profile-name">최승아 (Seungah Choi)</h3>
+                                <p class="profile-bio">Digital Designer focusing on UI/UX and Branding. 6 months of passion and detail.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-follow">FOLLOW</a>
+                    </div>
+                    
+                    <div class="card-info-grid">
+                        <div class="info-item">
+                            <span class="info-label">SOCIAL</span>
+                            <div class="info-links">
+                                <a href="#">Instagram</a>
+                                <a href="#">Behance</a>
+                                <a href="#">Dribbble</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">LOCATION</span>
+                            <p class="info-val">Seoul, Korea</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">EMAIL</span>
+                            <p class="info-val">hello@seungah.com</p>
+                        </div>
+                    </div>
+
+                    <div class="card-bottom">
+                        <p class="copy">© 2026 CHOI SEUNG AH. ALL RIGHTS RESERVED.</p>
+                        <a href="#home" class="btn-top-small">BACK TO TOP ↑</a>
+                    </div>
+                </div>
             </div>
         </footer>
     </main>
