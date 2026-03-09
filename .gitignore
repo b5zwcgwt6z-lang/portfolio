@@ -1,0 +1,7 @@
+# 임시 파일 및 설정 파일 제외
+1.md
+GEMINI.md
+.gemini/
+node_modules/
+.DS_Store
+Thumbs.db

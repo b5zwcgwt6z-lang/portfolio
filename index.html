@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최승아 — Premium Portfolio</title>
+    
+    <!-- 폰트 설정 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-ibm-plex-sans@1.1.13/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+    <!-- 애니메이션 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- 스타일 및 스크립트 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="mouse-dot"></div>
+    <div class="mouse-circle"></div>
+
+    <header class="header">
+        <div class="inner row">
+            <a href="/" class="logo">최승아</a>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#process">PROCESS</a></li>
+            </ul>
+            <a href="#" class="btn-black">HIRE ME</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. 히로 섹션 -->
+        <section id="home" class="hero">
+            <div class="hero-bg-txt">DESIGNER</div>
+            <div class="inner hero-flex">
+                <div class="hero-left">
+                    <span class="tag">UI/UX SPECIALIST</span>
+                    <h1 class="main-title">최승아<br>Portfolio</h1>
+                    <p class="hero-desc">사용자의 일상에 가치를 더하는<br>디자인을 합니다.</p>
+                </div>
+                <div class="hero-right">
+                    <div class="main-img-box">
+                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/78e3347d0ef9d6ed2888f7276f7f3c5c-rhvy5oeymuvlvabuabqm5h5lmpsamuvb09gfcb2vmo.avif">
+                        <div class="img-badge b-top">IMPACTFUL</div>
+                        <div class="img-badge b-bottom">CREATIVE</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 어바웃 섹션 -->
+        <section id="about" class="aboutme">
+            <div class="inner row">
+                <div class="about-content">
+                    <span class="label">ABOUT ME</span>
+                    <h2 class="title">Passion for Detail</h2>
+                    <p class="txt">6개월 차 신입 디자이너로서, 픽셀 하나하나의 디테일에 집중합니다. 복잡한 문제를 단순하게 풀어내는 과정에서 즐거움을 느낍니다.</p>
+                    <div class="skill-list">
+                        <span class="skill-item">Figma</span>
+                        <span class="skill-item">Adobe CC</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="rounded-img">
+                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 프로젝트 섹션 -->
+        <section id="projects" class="projects">
+            <div class="inner">
+                <span class="label">WORKS</span>
+                <h2 class="title">Selected Projects</h2>
+                <div class="project-list">
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/iPhone-Space-Silver-Left-rhvy5of9qtcimuvpog94iuh00hdh9m2uvzkems03z4.avif">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>Luma Health App</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>JAN 2026</span><span>HEALTHCARE</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/Showcase-rhvy5of9qtcimuvpog94iuh00hdh9m2uvzkems03z4.avif">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>Horizon Finance</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>JAN 2026</span><span>FINTECH</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 프로세스 섹션 (확장형 이미지 레이아웃) -->
+        <section id="process" class="process">
+            <div class="inner">
+                <span class="label">PROCESS</span>
+                <h2 class="title">How I bring ideas to life</h2>
+                <div class="process-wrap">
+                    <div class="process-box active">
+                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg')"></div>
+                        <div class="process-txt">
+                            <span class="step">01</span>
+                            <h3>DISCOVER</h3>
+                            <p class="desc">프로젝트의 목표와 독특한 도전 과제를 이해하는 것부터 시작합니다.</p>
+                        </div>
+                    </div>
+                    <div class="process-box">
+                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg')"></div>
+                        <div class="process-txt">
+                            <span class="step">02</span>
+                            <h3>DESIGN</h3>
+                            <p class="desc">브랜드와 사용자 요구에 맞춘 정교한 시각적 컨셉을 제안합니다.</p>
+                        </div>
+                    </div>
+                    <div class="process-box">
+                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg')"></div>
+                        <div class="process-txt">
+                            <span class="step">03</span>
+                            <h3>DELIVER</h3>
+                            <p class="desc">픽셀 퍼펙트한 결과물을 통해 성공적인 런칭을 돕습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="inner">
+                <div class="big-name">최승아</div>
+                <div class="footer-row">
+                    <div class="footer-sns">
+                        <a href="#">INSTAGRAM</a>
+                        <a href="#">BEHANCE</a>
+                    </div>
+                    <a href="#home" class="btn-top">BACK TO TOP ↑</a>
+                </div>
+                <p class="copy">© 2026 CHOI SEUNG AH. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
