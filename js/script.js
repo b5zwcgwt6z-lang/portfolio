@@ -90,24 +90,10 @@ badges.forEach(function(badge, index) {
 
     badge.addEventListener('mouseenter', function() {
         floating.pause();
-        gsap.to(badge, {
-            scale: 1.2,
-            rotate: index % 2 === 0 ? 5 : -5,
-            duration: 0.6,
-            ease: "elastic.out(1.2, 0.5)"
-        });
     });
 
     badge.addEventListener('mouseleave', function() {
-        gsap.to(badge, {
-            scale: 1,
-            rotate: index % 2 === 0 ? -10 : 12,
-            duration: 0.4,
-            ease: "power2.out",
-            onComplete: function() {
-                floating.resume();
-            }
-        });
+        floating.resume();
     });
 });
 
