@@ -1,0 +1,36 @@
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="images/project1.png">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>Horizon Finance</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>JAN 2026</span><span>FINTECH</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="images/clink-banner.png">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>Horizon Finance</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>JAN 2026</span><span>FINTECH</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-1.jpg">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>E-commerce Web App</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>FEB 2026</span><span>WEB DESIGN</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="img-holder">
+                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-2.jpg">
+                        </div>
+                        <div class="info-overlay">
+                            <div class="info-top"><h3>Brand Identity System</h3><span class="arrow">→</span></div>
+                            <div class="info-meta"><span>MAR 2026</span><span>BRANDING</span></div>
+                        </div>
+                    </div>

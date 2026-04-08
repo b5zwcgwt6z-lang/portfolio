@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>최승아 — Premium Portfolio</title>
-    
+
     <!-- 폰트 설정 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-ibm-plex-sans@1.1.13/index.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- 애니메이션 및 슬라이더 라이브러리 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -20,6 +25,7 @@
     <link rel="stylesheet" href="css/style.css?v=1.1">
     <script src="js/script.js?v=1.1" defer></script>
 </head>
+
 <body>
     <div class="mouse-dot"></div>
     <div class="mouse-circle"></div>
@@ -28,10 +34,13 @@
         <div class="inner row">
             <a href="/" class="logo">Portfolio</a>
             <ul class="nav-menu">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
-                <li><a href="#process">PROCESS</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Works</a></li>
+                <li><a href="#process">Archive</a></li>
+                <li><a href="#campus">Campus</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#" class="btn-black">HIRE ME</a>
         </div>
@@ -43,9 +52,17 @@
             <div class="hero-bg-txt">DESIGNER</div>
             <div class="inner hero-flex">
                 <div class="hero-left">
-                    <span class="tag">이력서 보러가기</span>
-                    <h1 class="main-title">최승아</h1>
-                    <p class="hero-desc">"프로 같은 신입, <br>함께 하면 히어로"</p>
+                    <div class="hero-title">
+                        <div class="title-row">
+                            <span class="txt-purple">PRO</span>
+                            <span class="txt-black">같은 신입</span>
+                        </div>
+                        <div class="title-row">
+                            <span class="txt-black">함께 하면</span>
+                            <span class="txt-purple">HERO</span>
+                        </div>
+                        <p class="txt-name">최승아 입니다</p>
+                    </div>
                 </div>
                 <div class="hero-right">
                     <div class="main-img-wrapper">
@@ -53,8 +70,8 @@
                             <img src="images/aboutmeimg.png">
                         </div>
                         <div class="img-badge b-top">UI/UX</div>
-                        <div class="img-badge b-mid">MINIMALIST</div>
-                        <div class="img-badge b-bottom">CREATIVE</div>
+                        <div class="img-badge b-mid"># 행복한 추진력</div>
+                        <div class="img-badge b-bottom">creative</div>
                     </div>
                 </div>
             </div>
@@ -69,69 +86,32 @@
                     </div>
                 </div>
                 <div class="about-content">
-                    <span class="label">ABOUT ME</span>
+                    <span class="label-about">About Me</span>
                     <h2 class="title">최승아, SeungAh Choi</h2>
-                    <p class="txt">어떤 환경에서도 빠르게 적응하며 팀의 비전을 현실로 만드는 히어로로서, 우리 팀의 넥스트 레벨을 함께 만들어가고 싶습니다!</p>
-                    
+                    <p class="txt">빠르게 적응하며 팀의 비전을 현실로 만드는 히어로로서,<br>우리 팀의 넥스트 레벨을 함께 만들어가고 싶습니다 !</p>
+
                     <div class="personal-info">
                         <div class="info-item">
-                            <span class="info-key">BIRTH</span>
+                            <span class="info-key">Birth</span>
                             <p class="info-val">2001. 03. 13</p>
                             <p class="info-val">서울 거주</p>
                         </div>
                         <div class="info-item">
-                            <span class="info-key">EDUCATION</span>
-                            <p class="info-val">한림대학교</p>
-                            <p class="info-val">영어영문학과 & 디지털미디어콘텐츠</p>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-key">CERTIFICATE</span>
-                            <p class="info-val">GTQ 1급 - 2026.01</p>
-                            <p class="info-val">OPIc IH - 2025.08</p>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-key">CONTACT</span>
+                            <span class="info-key">Contact</span>
                             <p class="info-val">010-8408-0120</p>
                             <p class="info-val">csa2030@naver.com</p>
                         </div>
-                    </div>
-
-                    <div class="skill-list">
-                        <span class="skill-item">Figma</span>
-                        <span class="skill-item">Adobe CC</span>
-                        <span class="skill-item">HTML/CSS</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2-1. 서비스 섹션 (인터랙티브 버전) -->
-        <section id="services" class="services">
-            <div class="inner row">
-                <div class="service-left">
-                    <span class="label">SERVICES</span>
-                    <h2 class="title">What I Can Do</h2>
-                    <div class="service-list">
-                        <div class="service-item active" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg">
-                            <span class="s-num">01</span>
-                            <h3>UI/UX Design</h3>
-                            <p>사용자 중심의 직관적이고 아름다운 인터페이스를 설계합니다.</p>
+                        <div class="info-item">
+                            <span class="info-key">Certificate</span>
+                            <p class="info-val">GTQ 1급 - 2026.01</p>
+                            <p class="info-val">OPIc IH - 2025.08</p>
+                            <p class="info-val">2종보통운전면허</p>
                         </div>
-                        <div class="service-item" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg">
-                            <span class="s-num">02</span>
-                            <h3>Branding</h3>
-                            <p>브랜드의 가치를 시각적으로 전달하는 고유한 아이덴티티를 만듭니다.</p>
+                        <div class="info-item">
+                            <span class="info-key">Education</span>
+                            <p class="info-val">한림대학교 (복수전공)</p>
+                            <p class="info-val">영어영문학과 & 디지털미디어콘텐츠</p>
                         </div>
-                        <div class="service-item" data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg">
-                            <span class="s-num">03</span>
-                            <h3>Web Publishing</h3>
-                            <p>디자인을 코드로 완벽하게 구현하여 생동감 있는 웹을 만듭니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-right">
-                    <div class="service-img-box">
-                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" id="target-service-img">
                     </div>
                 </div>
             </div>
@@ -140,26 +120,68 @@
         <!-- 3. 프로젝트 섹션 -->
         <section id="projects" class="projects">
             <div class="inner">
-                <span class="label">WORKS</span>
+                <span class="label-about">WORKS</span>
                 <h2 class="title"> Projects</h2>
                 <div class="project-list">
                     <div class="project-card">
-                        <div class="img-holder">
-                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/iPhone-Space-Silver-Left-rhvy5of9qtcimuvpog94iuh00hdh9m2uvzkems03z4.avif">
-                        </div>
-                        <div class="info-overlay">
-                            <div class="info-top"><h3>에어비앤비 앱리디자인 프로젝트</h3><span class="arrow">→</span></div>
-                            <div class="info-meta"><span>2026.02.04 ~ 2026. 02.20 (2주)</span><span>- figma</span></div>
+                        <div class="pr">
+                            <img src="images/project1.png" class="pa">
+                            <div class="info-overlay pa">
+                                <div class="info-top">
+                                    <div class="project-title-wrap">
+                                        <h3>풀사이클 생성형 AI OTT 서비스</h3>
+                                    </div>
+                                    <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                                </div>
+                                <div class="info-meta">
+                                    <span>2026.03.24 ~ 2026.04.03 (9일)</span>
+                                    <div class="tool-icons">
+                                        <img src="https://www.figma.com/api/mcp/asset/3ed8cde4-b302-4505-9926-17ac9df6b9c2"
+                                            class="tool-icon">
+                                        <img src="https://www.figma.com/api/mcp/asset/37241f65-8595-4de8-a0e6-71233b09f96c"
+                                            class="tool-icon">
+                                        <img src="https://www.figma.com/api/mcp/asset/5b438adc-50e9-4317-a268-ea0fe3cc2ee5"
+                                            class="tool-icon">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="img-holder">
-                            <img src="https://demo.7iquid.com/lighter/wp-content/uploads/elementor/thumbs/Showcase-rhvy5of9qtcimuvpog94iuh00hdh9m2uvzkems03z4.avif">
+                </div> 
+            </div>
+        </section>
+
+        <!-- 2-1. 서비스 섹션 (인터랙티브 버전) -->
+        <section id="services" class="services">
+            <div class="inner row">
+                <div class="service-left">
+                    <span class="label-about">SERVICES</span>
+                    <h2 class="title">What I Can Do</h2>
+                    <div class="service-list">
+                        <div class="service-item active"
+                            data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg">
+                            <span class="s-num">01</span>
+                            <h3>UI/UX Design</h3>
+                            <p>사용자 중심의 직관적이고 아름다운 인터페이스를 설계합니다.</p>
                         </div>
-                        <div class="info-overlay">
-                            <div class="info-top"><h3>Horizon Finance</h3><span class="arrow">→</span></div>
-                            <div class="info-meta"><span>JAN 2026</span><span>FINTECH</span></div>
+                        <div class="service-item"
+                            data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg">
+                            <span class="s-num">02</span>
+                            <h3>Branding</h3>
+                            <p>브랜드의 가치를 시각적으로 전달하는 고유한 아이덴티티를 만듭니다.</p>
                         </div>
+                        <div class="service-item"
+                            data-img="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg">
+                            <span class="s-num">03</span>
+                            <h3>Web Publishing</h3>
+                            <p>디자인을 코드로 완벽하게 구현하여 생동감 있는 웹을 만듭니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-right">
+                    <div class="service-img-box">
+                        <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg"
+                            id="target-service-img">
                     </div>
                 </div>
             </div>
@@ -168,11 +190,13 @@
         <!-- 4. 프로세스 섹션 (확장형 이미지 레이아웃) -->
         <section id="process" class="process">
             <div class="inner">
-                <span class="label">PROCESS</span>
+                <span class="label-about">PROCESS</span>
                 <h2 class="title">How I bring ideas to life</h2>
                 <div class="process-wrap">
                     <div class="process-box active">
-                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg')"></div>
+                        <div class="process-bg"
+                            style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg')">
+                        </div>
                         <div class="process-txt">
                             <span class="step">01</span>
                             <h3>DISCOVER</h3>
@@ -180,7 +204,9 @@
                         </div>
                     </div>
                     <div class="process-box">
-                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg')"></div>
+                        <div class="process-bg"
+                            style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg')">
+                        </div>
                         <div class="process-txt">
                             <span class="step">02</span>
                             <h3>DESIGN</h3>
@@ -188,7 +214,9 @@
                         </div>
                     </div>
                     <div class="process-box">
-                        <div class="process-bg" style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg')"></div>
+                        <div class="process-bg"
+                            style="background-image:url('https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg')">
+                        </div>
                         <div class="process-txt">
                             <span class="step">03</span>
                             <h3>DELIVER</h3>
@@ -202,22 +230,62 @@
         <!-- 5. 캠퍼스 라이프 섹션 (Swiper 추가) -->
         <section id="campus" class="campus">
             <div class="inner">
-                <span class="label">CAMPUS LIFE</span>
+                <span class="label-about">CAMPUS LIFE</span>
                 <h2 class="title">Moments in School</h2>
-                
+
                 <div class="swiper campus-swiper">
                     <div class="swiper-wrapper">
                         <!-- 슬라이드 6개 이상 추가 -->
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-1.jpg" alt="1"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-2.jpg" alt="2"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-3.jpg" alt="3"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-4.jpg" alt="4"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" alt="5"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg" alt="6"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg" alt="7"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg" alt="8"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg" alt="9"></div></div>
-                        <div class="swiper-slide"><div class="slide-img"><img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg" alt="10"></div></div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-1.jpg"
+                                    alt="1"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-2.jpg"
+                                    alt="2"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-3.jpg"
+                                    alt="3"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Project-4.jpg"
+                                    alt="4"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg"
+                                    alt="5"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-2.jpg"
+                                    alt="6"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-3.jpg"
+                                    alt="7"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-1.jpg"
+                                    alt="8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-2.jpg"
+                                    alt="9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide-img"><img
+                                    src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Process-3.jpg"
+                                    alt="10"></div>
+                        </div>
                     </div>
                     <!-- 페이징/네비게이션 -->
                     <div class="swiper-pagination"></div>
@@ -226,10 +294,10 @@
         </section>
 
         <!-- 푸터 섹션 -->
-        <footer class="footer">
+        <footer id="contact" class="footer">
             <div class="inner">
                 <div class="footer-contact">
-                    <span class="label">CONTACT</span>
+                    <span class="label-about">CONTACT</span>
                     <h2 class="contact-title">Ready to start a project?</h2>
                     <a href="mailto:hello@seungah.com" class="big-email">LET'S TALK <span class="arrow">↗</span></a>
                 </div>
@@ -238,17 +306,19 @@
                     <div class="card-top">
                         <div class="profile-main">
                             <div class="profile-img">
-                                <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg" alt="Seungah">
+                                <img src="https://demo.7iquid.com/lighter/wp-content/uploads/2025/12/Service-1.jpg"
+                                    alt="Seungah">
                             </div>
                             <div class="profile-txt">
                                 <span class="profile-id">@seungah_design</span>
                                 <h3 class="profile-name">최승아 (Seungah Choi)</h3>
-                                <p class="profile-bio">Digital Designer focusing on UI/UX and Branding. 6 months of passion and detail.</p>
+                                <p class="profile-bio">Digital Designer focusing on UI/UX and Branding. 6 months of
+                                    passion and detail.</p>
                             </div>
                         </div>
                         <a href="#" class="btn-follow">FOLLOW</a>
                     </div>
-                    
+
                     <div class="card-info-grid">
                         <div class="info-item">
                             <span class="info-label">SOCIAL</span>
@@ -277,4 +347,5 @@
         </footer>
     </main>
 </body>
+
 </html>
