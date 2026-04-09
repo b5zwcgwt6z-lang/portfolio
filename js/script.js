@@ -22,6 +22,7 @@ serviceItems.forEach(function(item) {
     item.addEventListener('click', function() {
         serviceItems.forEach(el => el.classList.remove('active'));
         item.classList.add('active');
+        if (!serviceTargetImg) return;
         const newImg = item.getAttribute('data-img');
         gsap.to(serviceTargetImg, {
             opacity: 0,
@@ -38,8 +39,9 @@ serviceItems.forEach(function(item) {
 const processBoxes = document.querySelectorAll('.process-box');
 processBoxes.forEach(function(box) {
     box.addEventListener('click', function() {
-        processBoxes.forEach(el => el.classList.remove('active'));
+        processBoxes.forEach(el => el.classList.remove('active', 'show-desc'));
         box.classList.add('active');
+        setTimeout(function() { box.classList.add('show-desc'); }, 500);
     });
 });
 

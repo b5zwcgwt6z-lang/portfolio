@@ -94,11 +94,13 @@ section {
   padding: 0;
 }
 .logo {
-  font-weight: 900;
-  font-size: 31px;
-  letter-spacing: 2px;
   text-decoration: none;
-  color: #3D3445;
+  display: flex;
+  align-items: center;
+}
+.logo dotlottie-player {
+  width: 140px;
+  height: 70px;
 }
 .nav-menu {
   display: flex;
@@ -356,9 +358,10 @@ section {
   color: var(--point);
   letter-spacing: 2px;
 }
-.info-val {
-  font-size: 15px;
+.personal-info .info-val {
+  font-size: 17px;
   font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
   color: var(--text);
 }
 .skill-list {
@@ -419,7 +422,7 @@ section {
   border-bottom-color: var(--point);
 }
 .s-num {
-  font-size: 14px;
+  font-size: 30px;
   font-weight: 900;
   color: var(--point);
   display: block;
@@ -451,18 +454,144 @@ section {
   top: 20%;
   height: 500px;
 }
-.service-img-box {
-  width: 100%;
-  height: 100%;
-  border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 0 40px 80px rgba(195, 177, 225, 0.15);
+
+/* Archive 섹션 폴더 애니메이션 */
+@keyframes doc-rise-1 {
+  from { transform: translateX(-58%) rotate(-7deg) scale(1); bottom: 53px; opacity: 0.75; }
+  to   { transform: translateX(-58%) rotate(-12deg) scale(1.03); bottom: 70px; opacity: 1; }
 }
-.service-img-box img {
+@keyframes doc-rise-2 {
+  from { transform: translateX(-50%) rotate(1deg) scale(1); bottom: 50px; opacity: 0.95; }
+  to   { transform: translateX(-50%) rotate(2deg) scale(1.04); bottom: 75px; opacity: 1; }
+}
+@keyframes doc-rise-3 {
+  from { transform: translateX(-42%) rotate(8deg) scale(1); bottom: 54px; opacity: 0.85; }
+  to   { transform: translateX(-42%) rotate(14deg) scale(1.03); bottom: 71px; opacity: 1; }
+}
+@keyframes folder-lift-tilt {
+  from {
+    transform: translateY(0) rotateY(0deg) scale(1);
+    box-shadow: 0 4px 10px -1px rgba(0,0,0,0.1), 0 2px 6px -2px rgba(0,0,0,0.08);
+  }
+  to {
+    transform: translateY(-6px) rotateY(-5deg) scale(1.02);
+    box-shadow: 0 14px 25px -6px rgba(13,148,136,0.15), 0 6px 14px -4px rgba(13,148,136,0.1);
+  }
+}
+@keyframes folder-icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.12); }
+}
+@keyframes folder-shine {
+  0%   { transform: translateX(-150%) skewX(-25deg); opacity: 0.3; }
+  100% { transform: translateX(150%) skewX(-25deg); opacity: 0.3; }
+}
+
+.folder-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
+  padding-top: 50px;
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  perspective: 1000px;
+}
+.folder-container .document {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 70%;
+  height: 115px;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.03), 0 2px 5px rgba(0,0,0,0.08);
+  border-radius: 0.375rem;
+  transform-origin: bottom center;
+  opacity: 0.9;
+  transition: transform 0.5s cubic-bezier(0.83,0,0.17,1), bottom 0.5s cubic-bezier(0.83,0,0.17,1), opacity 0.5s ease-out;
+  background-image:
+    linear-gradient(to right, #0d9488 30%, #2dd4bf 70%),
+    linear-gradient(to bottom, #d1d5db 1px, transparent 1px),
+    linear-gradient(to bottom, #d1d5db 1px, transparent 1px),
+    linear-gradient(to bottom, #d1d5db 1px, transparent 1px);
+  background-size: 100% 5px, 85% 10px, 85% 10px, 85% 10px;
+  background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
+  background-position: top left, center 20px, center 30px, center 40px;
+  border: 1px solid #e5e7eb;
+}
+.folder-container .doc-1 { transform: translateX(-58%) rotate(-7deg);  z-index: 1; bottom: 53px; opacity: 0.8;  height: 110px; background-position: top left, center 22px, center 32px, center 42px; }
+.folder-container .doc-2 { transform: translateX(-50%) rotate(1deg);   z-index: 2; bottom: 50px; opacity: 0.95; width: 75%; background-size: 100% 5px, 80% 10px, 90% 10px, 85% 10px; }
+.folder-container .doc-3 { transform: translateX(-42%) rotate(8deg);   z-index: 3; bottom: 54px; opacity: 0.9;  height: 112px; background-position: top left, center 18px, center 28px, center 38px; }
+
+.folder-container:hover .doc-1      { animation: doc-rise-1 0.5s  cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.folder-container:hover .doc-2      { animation: doc-rise-2 0.55s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.folder-container:hover .doc-3      { animation: doc-rise-3 0.6s  cubic-bezier(0.34,1.56,0.64,1) forwards; }
+.folder-container:hover .folder-card       { animation: folder-lift-tilt  0.5s cubic-bezier(0.83,0,0.17,1) forwards; }
+.folder-container:hover .folder-icon       { animation: folder-icon-pulse 0.8s ease-in-out; }
+.folder-container:hover .folder-card::before { animation: folder-shine 1s ease-out; }
+
+.folder-card {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(204,251,241,0.2);
+  border-radius: 1.1rem;
+  box-shadow: 0 4px 10px -1px rgba(0,0,0,0.1), 0 2px 6px -2px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  z-index: 10;
+  transition: transform 0.5s cubic-bezier(0.83,0,0.17,1), box-shadow 0.5s cubic-bezier(0.83,0,0.17,1);
+  transform-style: preserve-3d;
+}
+.folder-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 70px; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-150%) skewX(-25deg);
+}
+.folder-card > * {
+  position: relative;
+  z-index: 1;
+  transform: translateZ(1px);
+}
+.folder-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.folder-card-left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.folder-card-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+.folder-icon {
+  color: #fcd34d;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+  transition: transform 0.5s cubic-bezier(0.83,0,0.17,1);
+}
+.folder-title {
+  color: #fef3c7;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.file-count {
+  color: #fde68a;
+  font-size: 0.8rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: color 0.4s ease-out;
+}
+.folder-container:hover .file-count {
+  color: #fef9c3;
 }
 
 /* 3. 프로젝트 섹션 */
@@ -478,37 +607,42 @@ section {
   margin: 0 auto;
   filter: drop-shadow(0 20px 40px rgba(195, 177, 225, 0.2));
 }
-.pr{position: relative;}
-.pa{position: absolute;}
 .img-holder {
   border-radius: 40px;
   overflow: hidden;
   border: 1px solid var(--lavender);
   width: 100%;
-  height: 520px;
+  height: 500px;
 }
 .img-holder img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 135%;
   object-fit: cover;
+  transform: translateX(-10%) translateY(-20%);
   transition: 1s;
 }
 .project-card:hover img {
-  transform: scale(1.05);
+  transform: translateX(-10%) translateY(-20%) scale(1.05);
+}
+.project-card--sm .img-holder img {
+  width: 110%;
+  height: 160%;
 }
 .info-overlay {
-  background: white;
+  background: #ffffff55;
   border: 1px solid var(--lavender);
   padding: 20px 28px;
   border-radius: 24px;
-  margin: -60px 40px 0;
+  transform: translateY(-180px);
+  margin: 0 40px 0;
   position: relative;
   box-shadow: 0 20px 50px rgba(195, 177, 225, 0.25);
   transition: 0.4s;
+  backdrop-filter:blur(20px);
 }
 .project-card:hover .info-overlay {
-  transform: translateY(-10px);
+  transform: translateY(-200px);
 }
 .info-top {
   display: flex;
@@ -554,9 +688,9 @@ section {
   align-items: center;
   border-top: 1px solid var(--lavender);
   padding-top: 12px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
-  color: var(--sub);
+  color: rgb(228, 228, 228);
 }
 
 /* 4. 프로세스 섹션 */
@@ -586,46 +720,45 @@ section {
   background-size: cover;
   background-position: center;
   transition: 1.2s;
-  z-index: 1;
+  z-index: 0;
 }
 .process-box::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.7));
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
   z-index: 2;
 }
 .process-txt {
   position: absolute;
   bottom: 40px;
   left: 40px;
+  right: 40px;
   color: white;
   z-index: 3;
 }
 .step {
-  font-size: 14px;
+  font-size: 50px;
   color: var(--butter);
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-weight: 900;
+  line-height: 1;
 }
 .process-txt h3 {
   font-size: 36px;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 .process-txt .desc {
   font-size: 16px;
-  opacity: 0.8;
-  transform: translateY(20px);
-  transition: 0.5s;
-  max-width: 400px;
+  opacity: 0.85;
+  margin-top: 8px;
   display: none;
 }
-.process-box.active .desc {
+.process-box.show-desc .desc {
   display: block;
-  transform: translateY(0);
 }
 
 /* 푸터 통합 카드 */
@@ -786,6 +919,9 @@ section {
   background: var(--bg);
   padding: 120px 0;
   border-top: 1px solid var(--lavender);
+}
+.campus .inner {
+  overflow: hidden;
 }
 .campus-swiper {
   margin-top: 50px;
