@@ -1,0 +1,143 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+         background: linear-gradient(to bottom right, #065f46, #115e59, #155e75);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         margin: 0;
+    }
+
+    .folder-container {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --smooth-easing: cubic-bezier(0.83, 0, 0.17, 1);
+        --overshoot-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes doc-rise-1 {
+        from { transform: translateX(-58%) rotate(-7deg) scale(1); bottom: 53px; opacity: 0.75; }
+        to { transform: translateX(-58%) rotate(-12deg) scale(1.03); bottom: 70px; opacity: 1; }
+    }
+    @keyframes doc-rise-2 {
+        from { transform: translateX(-50%) rotate(1deg) scale(1); bottom: 50px; opacity: 0.95; }
+        to { transform: translateX(-50%) rotate(2deg) scale(1.04); bottom: 75px; opacity: 1; }
+    }
+    @keyframes doc-rise-3 {
+        from { transform: translateX(-42%) rotate(8deg) scale(1); bottom: 54px; opacity: 0.85; }
+        to { transform: translateX(-42%) rotate(14deg) scale(1.03); bottom: 71px; opacity: 1; }
+    }
+    @keyframes folder-lift-tilt {
+        from {
+            transform: translateY(0) rotateY(0deg) scale(1);
+            box-shadow: 0 4px 10px -1px rgba(0,0,0, 0.1), 0 2px 6px -2px rgba(0,0,0, 0.08);
+        }
+        to {
+            transform: translateY(-6px) rotateY(-5deg) scale(1.02);
+            box-shadow: 0 14px 25px -6px rgba(13, 148, 136, 0.15), 0 6px 14px -4px rgba(13, 148, 136, 0.1);
+        }
+    }
+    @keyframes icon-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.12); }
+    }
+    @keyframes shine {
+        0% { transform: translateX(-150%) skewX(-25deg); opacity: 0.3; }
+        100% { transform: translateX(150%) skewX(-25deg); opacity: 0.3; }
+    }
+
+    .folder-container {
+        position: relative; width: 280px; padding-top: 50px; margin: 4rem auto;
+        transition: transform 0.4s var(--smooth-easing);
+        perspective: 1000px;
+    }
+
+    .document {
+        position: absolute; bottom: 50px; left: 50%; width: 70%; height: 115px;
+        background-color: #ffffff;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.03), 0 2px 5px rgba(0,0,0,0.08);
+        border-radius: 0.375rem; transform-origin: bottom center; opacity: 0.9;
+        transition: transform 0.5s var(--smooth-easing), bottom 0.5s var(--smooth-easing), opacity 0.5s ease-out;
+        background-image: linear-gradient(to right, #0d9488 30%, #2dd4bf 70%), linear-gradient(to bottom, #d1d5db 1px, transparent 1px), linear-gradient(to bottom, #d1d5db 1px, transparent 1px), linear-gradient(to bottom, #d1d5db 1px, transparent 1px);
+        background-size: 100% 5px, 85% 10px, 85% 10px, 85% 10px;
+        background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
+        background-position: top left, center 20px, center 30px, center 40px;
+        border: 1px solid #e5e7eb;
+    }
+    .doc-1 { transform: translateX(-58%) rotate(-7deg); z-index: 1; bottom: 53px; opacity: 0.8; height: 110px; background-position: top left, center 22px, center 32px, center 42px; }
+    .doc-2 { transform: translateX(-50%) rotate(1deg); z-index: 2; bottom: 50px; width: 75%; opacity: 0.95; background-size: 100% 5px, 80% 10px, 90% 10px, 85% 10px; }
+    .doc-3 { transform: translateX(-42%) rotate(8deg); z-index: 3; bottom: 54px; opacity: 0.9; height: 112px; background-position: top left, center 18px, center 28px, center 38px; }
+
+    .folder-container:hover .doc-1 { animation: doc-rise-1 0.5s var(--overshoot-easing) forwards; }
+    .folder-container:hover .doc-2 { animation: doc-rise-2 0.55s var(--overshoot-easing) forwards; }
+    .folder-container:hover .doc-3 { animation: doc-rise-3 0.6s var(--overshoot-easing) forwards; }
+    .folder-container:hover .folder-card { animation: folder-lift-tilt 0.5s var(--smooth-easing) forwards; }
+    .folder-container:hover .folder-icon { animation: icon-pulse 0.8s ease-in-out; }
+    .folder-container:hover .folder-card::before { animation: shine 1s ease-out; }
+
+    .folder-card {
+        position: relative; overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(204, 251, 241, 0.2);
+        border-radius: 1.1rem;
+        box-shadow: 0 4px 10px -1px rgba(0,0,0, 0.1), 0 2px 6px -2px rgba(0,0,0, 0.08);
+        padding: 1.5rem; z-index: 10;
+        transition: transform 0.5s var(--smooth-easing), box-shadow 0.5s var(--smooth-easing);
+        transform-style: preserve-3d;
+    }
+    .folder-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 70px; height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+        transform: translateX(-150%) skewX(-25deg);
+    }
+
+    .folder-icon {
+         color: #fcd34d;
+         filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+         transition: transform 0.5s var(--smooth-easing);
+    }
+    .folder-title {
+        color: #fef3c7;
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .file-count {
+        color: #fde68a;
+        font-size: 0.8rem;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.4s ease-out;
+    }
+    .folder-container:hover .file-count {
+        color: #fef9c3;
+    }
+
+    .folder-card > * {
+       position: relative; z-index: 1; transform: translateZ(1px);
+    }
+</style>
+
+<div class="folder-container">
+    <div class="document doc-1"></div>
+    <div class="document doc-2"></div>
+    <div class="document doc-3"></div>
+    <div class="folder-card">
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center space-x-2.5">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 folder-icon" fill="currentColor" viewBox="0 0 20 20">
+                     <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm5 2a1 1 0 00-1 1v1a1 1 0 102 0V9a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+                <h2 class="text-xl font-semibold folder-title">Documents</h2>
+            </div>
+        </div>
+        <div class="flex justify-start items-center mt-1">
+            <p class="text-sm file-count">3 files</p>
+        </div>
+    </div>
+</div>

@@ -10,39 +10,52 @@ const projectData = [
         git: 'https://github.com/seoyun-tech/Rookiz',
         notion: 'https://mbcdomain.notion.site/AI-OTT-33a97cee1df0804b9981f9114dcc43cd',
         site: 'https://rookiz-front.onrender.com/',
-        stack: ['Figma', 'React', 'Spring Boot', 'MySQL', 'AWS'],
+        stack: {
+            '프론트엔드': ['React 19', 'Vite', 'Tailwind CSS v4', 'React Router v7', 'Axios', 'FontAwesome'],
+            '백엔드': ['Python FastAPI', 'TMDB API'],
+            '디자인': ['Google Stitch', 'Figma'],
+            '개발 방식': ['Gemini CLI', 'Claude Code'],
+            '배포': ['Render'],
+            '형상 관리': ['Git/GitHub', '모노레포'],
+        },
         contribution: '34%',
-        purpose: "아이들의 성장에 맞춘 연령별 완벽 차단으로, 무분별한 알고리즘의 위협으로부터 보호하기 위해 제작한 <strong style='font-weight:900'>키즈 OTT 서비스</strong>",
-        problem: 'Git 브랜치 전략 및 협업 규칙 부족으로 코드 충돌이 발생하고, 서로의 작업물이 덮어씌워지는 등 소스코드 관리의 혼선이 있었습니다.',
-        solution: '각자 개인 브랜치에서 작업 후 Pull Request를 통해 리뷰를 거쳐 dev에 반영하도록 했으며 디자인 부분에서도 KRDS의 시스템을 참고해 규칙을 구축했습니다.',
+        purpose: "성장에 맞춘 연령별 완벽 차단으로, 알고리즘의 위협으로부터 보호하기 위해 제작한 <strong style='font-weight:750'>키즈 OTT 서비스</strong>",
+        problem: '브랜치 전략 및 협업 규칙 부재로 인한 코드 충돌과 소스 관리 체계의 혼선',
+        solution: '개별 브랜치 작업 및 Pull Request 기반의 코드 리뷰 프로세스를 도입하고, KRDS 기반의 디자인 시스템을 구축하여 협업 규칙을 체계화',
     },
     {
         img: 'images/clink-logo.jpg',
         imgPosition: '0% center',
         imgScale: 1.6,
+        imgOrigin: '0% center',
         plan: 'https://www.figma.com/deck/PXmBvzb8Rg4FfCQu5dGNEP',
         git: 'https://github.com/b5zwcgwt6z-lang/projectA',
         notion: null,
         site: 'https://b5zwcgwt6z-lang.github.io/projectA/',
-        stack: ['Figma', 'HTML', 'CSS', 'JavaScript', 'Swiper'],
+        stack: ['Figma', 'Photoshop', 'Illustrator', 'HTML', 'JavaScript', 'CSS'],
         contribution: '100%',
-        purpose: "노티드의 키치함에 상생 가치를 더한 <strong style='font-weight:900'>프리미엄 정체성</strong>를 구축",
+        purpose: "노티드의 키치함에 상생 가치를 더한 <strong style='font-weight:750'>프리미엄 정체성</strong>를 구축",
         problem: '가치 전달과 시각적 피로도 사이의 균형 확보 난항',
         solution: '메인 비주얼의 시각적 단순화와 Swiper 구조를 활용한 정보 계층화',
     },
     {
         img: 'images/airbnb-mockup.PNG',
-        imgScale: 1.8,
-        imgPosition: '30% 30%',
-        plan: null,
+        imgScale: 1.4,
+        imgPosition: '30% center',
+        imgOrigin: '0% center',
+        imgY: 20,
+        imgX: 20,
+        plan: 'https://www.figma.com/deck/vZAIU9Op6Fr4weP4Hx900A',
+        videoLink: 'https://drive.google.com/file/d/1A3qdZKDHw9ueM23mhW15xwsj_IJfFSvm/view?usp=sharing',
+        prototype: 'https://www.figma.com/design/NEDf02RUHkY7zLffMSZvTm/%EC%97%90%EC%96%B4%EB%B9%84%EC%95%A4%EB%B9%84-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=99-200&t=88QumeYN8SpKy3kj-1',
         git: null,
         notion: null,
         site: null,
-        stack: ['Figma'],
+        stack: ['Premiere Pro', 'Photoshop', 'Illustrator', 'Figma', 'Notion'],
         contribution: '34%',
-        purpose: '에어비앤비앱의 보완점과 최근 여행 플렛폼 트렌드를 분석하여 불투명한 정보는 걷어내고, 복잡한 구조는 정제한 사용자 중심의 리디자인입니다.',
-        problem: '팀원마다 폰트 크기나 컬러값이 조금씩 달라 결과물을 합쳤을 때 전체적인 디자인이 조화롭지 않고 제각각이었습니다.',
-        solution: '누가 작업해도 같은 결과가 나오도록 Figma에서 사용하는 모든 디자인 요소를 스타일로 등록하고 규칙을 하나하나 정형화했습니다.',
+        purpose: "보완점과 트렌드를 분석하여 불투명한 정보는 걷어내고, 복잡한 구조는 정제한 <strong style='font-weight:750'>사용자 중심의 리디자인</strong>",
+        problem: '팀원별 디자인 수치(폰트·컬러)의 상이한 적용으로 인한 시각적 일관성 결여 및 작업물 간 부조화',
+        solution: '팀원 누구나 동일한 결과물을 도출할 수 있도록 Figma 내 모든 요소를 스타일로 자산화하고 협업 규칙을 정형화',
     },
 ];
 
@@ -55,6 +68,8 @@ const modalBtnSite = document.getElementById('modal-btn-site');
 const modalBtnPlan = document.getElementById('modal-btn-plan');
 const modalBtnGit = document.getElementById('modal-btn-git');
 const modalBtnNotion = document.getElementById('modal-btn-notion');
+const modalBtnVideo = document.getElementById('modal-btn-video');
+const modalBtnProto = document.getElementById('modal-btn-proto');
 
 function closeModal() {
     modal.classList.remove('open');
@@ -73,16 +88,20 @@ document.querySelectorAll('.project-card').forEach(function(card) {
             modalVideo.style.display = 'block';
             modalVideo.src = d.video + '?autoplay=1&mute=1';
             imgWrap.style.backgroundImage = 'none';
+            imgWrap.style.height = '';
             imgWrap.classList.add('is-video');
         } else {
-            modalImg.style.display = 'none';
             modalVideo.style.display = 'none';
+            modalVideo.src = '';
             imgWrap.classList.remove('is-video');
-            imgWrap.style.height = '320px';
-            imgWrap.style.backgroundImage = `url('${d.img}')`;
-            imgWrap.style.backgroundSize = d.imgScale ? `${d.imgScale * 100}%` : 'cover';
-            imgWrap.style.backgroundPosition = d.imgPosition || 'center';
-            imgWrap.style.backgroundRepeat = 'no-repeat';
+            imgWrap.style.backgroundImage = '';
+            imgWrap.style.height = '';
+            modalImg.src = d.img;
+            modalImg.style.display = 'block';
+            modalImg.style.objectPosition = d.imgPosition || 'center';
+            modalImg.style.transformOrigin = d.imgOrigin || 'center center';
+            const ty = d.imgY ? `${d.imgY}px` : '0px';
+            modalImg.style.transform = d.imgScale ? `scale(${d.imgScale}) translateY(${ty})` : 'scale(1)';
         }
 
         modalBtnPlan.href = d.plan || '#';
@@ -91,6 +110,10 @@ document.querySelectorAll('.project-card').forEach(function(card) {
         modalBtnGit.style.display = d.git ? '' : 'none';
         modalBtnNotion.href = d.notion || '#';
         modalBtnNotion.style.display = d.notion ? '' : 'none';
+        modalBtnVideo.href = d.videoLink || '#';
+        modalBtnVideo.style.display = d.videoLink ? '' : 'none';
+        modalBtnProto.href = d.prototype || '#';
+        modalBtnProto.style.display = d.prototype ? '' : 'none';
         modalBtnSite.href = d.site || '#';
         modalBtnSite.style.display = d.site ? '' : 'none';
 
@@ -99,7 +122,18 @@ document.querySelectorAll('.project-card').forEach(function(card) {
         document.getElementById('modal-problem').textContent = d.problem;
         document.getElementById('modal-solution').textContent = d.solution;
         const stackWrap = document.getElementById('modal-stack');
-        stackWrap.innerHTML = (d.stack || []).map(s => `<span class="stack-tag">${s}</span>`).join('');
+        if (Array.isArray(d.stack)) {
+            stackWrap.classList.add('modal-stack--flat');
+            stackWrap.innerHTML = d.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
+        } else {
+            stackWrap.classList.remove('modal-stack--flat');
+            stackWrap.innerHTML = Object.entries(d.stack).map(([cat, items]) =>
+                `<div class="stack-row">
+                    <span class="stack-cat">${cat}</span>
+                    <div class="stack-tags">${items.map(s => `<span class="stack-tag">${s}</span>`).join('')}</div>
+                </div>`
+            ).join('');
+        }
 
         modal.classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -113,7 +147,7 @@ modal.addEventListener('click', function(e) {
 
 
 // GSAP 플러그인 연결
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin);
 
 // 1. 커스텀 마우스 효과
 const dot = document.querySelector('.mouse-dot');
@@ -126,24 +160,37 @@ window.addEventListener('mousemove', function(e) {
     gsap.to(circle, { x: x - 20, y: y - 20, duration: 0.15 });
 });
 
-// 2. 서비스 섹션: 클릭하면 이미지 교체되는 로직
-const serviceItems = document.querySelectorAll('.service-item');
-const serviceTargetImg = document.querySelector('#target-service-img');
 
-serviceItems.forEach(function(item) {
+
+
+// 2. 서비스 섹션: 클릭 시 아코디언 + 카드 전환
+const serviceItems = document.querySelectorAll('.service-item');
+const archivePanels = document.querySelectorAll('.archive-cards');
+
+// archive-cards 클릭 시 service-item 토글 방지
+archivePanels.forEach(function(panel) {
+    panel.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+
+// 초기 상태: 1번 펼쳐진 채로 시작
+serviceItems.forEach(el => el.classList.remove('active'));
+archivePanels.forEach(p => p.classList.add('cards-hidden'));
+serviceItems[0].classList.add('active');
+archivePanels[0].classList.remove('cards-hidden');
+
+serviceItems.forEach(function(item, index) {
     item.addEventListener('click', function() {
+        const isActive = item.classList.contains('active');
         serviceItems.forEach(el => el.classList.remove('active'));
-        item.classList.add('active');
-        if (!serviceTargetImg) return;
-        const newImg = item.getAttribute('data-img');
-        gsap.to(serviceTargetImg, {
-            opacity: 0,
-            duration: 0.2,
-            onComplete: function() {
-                serviceTargetImg.setAttribute('src', newImg);
-                gsap.to(serviceTargetImg, { opacity: 1, duration: 0.4 });
+        archivePanels.forEach(p => p.classList.add('cards-hidden'));
+        if (!isActive) {
+            item.classList.add('active');
+            if (archivePanels[index]) {
+                archivePanels[index].classList.remove('cards-hidden');
             }
-        });
+        }
     });
 });
 
@@ -151,28 +198,21 @@ serviceItems.forEach(function(item) {
 const processBoxes = document.querySelectorAll('.process-box');
 processBoxes.forEach(function(box) {
     box.addEventListener('click', function() {
-        processBoxes.forEach(el => el.classList.remove('active'));
+        processBoxes.forEach(function(el) {
+            el.classList.remove('active');
+            const iframe = el.querySelector('.process-video-card iframe');
+            if (iframe) iframe.src = '';
+        });
         box.classList.add('active');
+        const videoCard = box.querySelector('.process-video-card');
+        if (videoCard) {
+            const iframe = videoCard.querySelector('iframe');
+            iframe.src = videoCard.dataset.src + '?autoplay=1&mute=1';
+        }
     });
 });
 
-// 4. 스크롤할 때 프로젝트 카드가 나타나는 효과
-const cards = document.querySelectorAll('.project-card');
-cards.forEach(function(card) {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none"
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-    });
-});
-
-// 5. 상단 메뉴 클릭 시 부드럽게 이동
+// 4. 상단 메뉴 클릭 시 부드럽게 이동
 const links = document.querySelectorAll('.nav-menu a, .btn-top, .btn-top-small');
 links.forEach(function(link) {
     link.addEventListener('click', function(e) {
@@ -210,29 +250,47 @@ badges.forEach(function(badge, index) {
     });
 });
 
-// 7. 캠퍼스 라이프 Swiper 설정
-const campusSwiper = new Swiper('.campus-swiper', {
-    slidesPerView: 2, // 기본 (모바일)
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-    speed: 1000,
-    autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        // 화면 너비가 768px 이상일 때
-        768: {
-            slidesPerView: 4,
-        },
-        // 화면 너비가 1200px 이상일 때
-        1200: {
-            slidesPerView: 6,
-        },
-    },
-});
+// 7. 캠퍼스 레벨 캐러셀
+(function() {
+    var el = document.querySelector('.level-carousel');
+    if (!el) return;
+
+    var items = Array.from(el.querySelectorAll('.lc-item'));
+    var total = items.length;
+    var active = 0;
+
+    function getLevel(index) {
+        var diff = index - active;
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+        return Math.max(-3, Math.min(3, diff));
+    }
+
+    function render() {
+        items.forEach(function(item, i) {
+            item.dataset.level = getLevel(i);
+        });
+    }
+
+    function next() { active = (active + 1) % total; render(); }
+    function prev() { active = (active - 1 + total) % total; render(); }
+
+    // 카드 클릭 → 해당 방향으로 이동
+    items.forEach(function(item) {
+        item.addEventListener('click', function() {
+            var level = parseInt(item.dataset.level);
+            if (level > 0) next();
+            else if (level < 0) prev();
+        });
+    });
+
+    el.querySelector('.lc-prev').addEventListener('click', prev);
+    el.querySelector('.lc-next').addEventListener('click', next);
+
+    // 자동 재생 (마우스 오버 시 정지)
+    var timer = setInterval(next, 3000);
+    el.addEventListener('mouseenter', function() { clearInterval(timer); });
+    el.addEventListener('mouseleave', function() { timer = setInterval(next, 3000); });
+
+    render();
+}());

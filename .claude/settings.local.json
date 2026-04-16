@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "mcp__claude_ai_Figma__whoami",
-      "mcp__claude_ai_Figma__get_design_context"
+      "mcp__claude_ai_Figma__get_design_context",
+      "WebFetch(domain:codepen.io)",
+      "Bash(cp \"C:/Users/PC/Documents/seungah/web/html/email/index.html\" \"C:/Users/PC/Desktop/portfolio/email/index.html\")",
+      "Bash(cp \"C:/Users/PC/Documents/seungah/web/html/email/style.css\" \"C:/Users/PC/Desktop/portfolio/email/style.css\")",
+      "WebFetch(domain:demo.7iquid.com)"
     ]
   }
 }
