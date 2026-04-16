@@ -250,6 +250,79 @@ badges.forEach(function(badge, index) {
     });
 });
 
+// 8. Archive 카드 레벨 캐러셀
+document.querySelectorAll('.archive-cards').forEach(function(archiveEl) {
+    var stack = archiveEl.querySelector('.card-stack');
+    if (!stack) return;
+
+    var items = Array.from(stack.querySelectorAll('.ap-post'));
+    var total = items.length;
+    if (total < 2) return;
+    var active = 0;
+
+    function getLevel(index) {
+        var diff = index - active;
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+        return Math.max(-3, Math.min(3, diff));
+    }
+
+    function render() {
+        items.forEach(function(item, i) {
+            item.dataset.level = getLevel(i);
+        });
+    }
+
+    function next() { active = (active + 1) % total; render(); }
+    function prev() { active = (active - 1 + total) % total; render(); }
+
+    // 사이드 카드 클릭 → 해당 방향으로 이동
+    items.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            var level = parseInt(item.dataset.level);
+            if (level > 0) { e.preventDefault(); next(); }
+            else if (level < 0) { e.preventDefault(); prev(); }
+        });
+    });
+
+    var prevBtn = archiveEl.querySelector('.ac-prev');
+    var nextBtn = archiveEl.querySelector('.ac-next');
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+
+    // 마우스 드래그로 슬라이드
+    var dragStartX = 0;
+    var isDragging = false;
+    var hasMoved = false;
+
+    stack.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        isDragging = true;
+        hasMoved = false;
+        dragStartX = e.clientX;
+        stack.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging || hasMoved) return;
+        var delta = e.clientX - dragStartX;
+        if (Math.abs(delta) > 50) {
+            hasMoved = true;
+            if (delta < 0) next();
+            else prev();
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        if (!isDragging) return;
+        isDragging = false;
+        hasMoved = false;
+        stack.style.cursor = '';
+    });
+
+    render();
+});
+
 // 7. 캠퍼스 레벨 캐러셀
 (function() {
     var el = document.querySelector('.level-carousel');
