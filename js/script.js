@@ -367,3 +367,132 @@ document.querySelectorAll('.archive-cards').forEach(function(archiveEl) {
 
     render();
 }());
+
+// AI Zone 좋아요/싫어요 토글
+document.querySelectorAll('.aizone-like-group').forEach(function(group) {
+    const likeIcon = group.querySelector('.fa-thumbs-up');
+    const dislikeIcon = group.querySelector('.fa-thumbs-down');
+
+    likeIcon.parentElement.addEventListener('click', function() {
+        const isActive = likeIcon.classList.contains('fa-solid');
+        likeIcon.classList.toggle('fa-solid', !isActive);
+        likeIcon.classList.toggle('fa-regular', isActive);
+        if (!isActive) {
+            dislikeIcon.classList.remove('fa-solid');
+            dislikeIcon.classList.add('fa-regular');
+        }
+    });
+
+    dislikeIcon.parentElement.addEventListener('click', function() {
+        const isActive = dislikeIcon.classList.contains('fa-solid');
+        dislikeIcon.classList.toggle('fa-solid', !isActive);
+        dislikeIcon.classList.toggle('fa-regular', isActive);
+        if (!isActive) {
+            likeIcon.classList.remove('fa-solid');
+            likeIcon.classList.add('fa-regular');
+        }
+    });
+});
+
+// Travel Gallery
+(function() {
+    var featured = document.getElementById('gallery-featured');
+    var caption = document.getElementById('gallery-caption');
+    var desc = document.getElementById('gallery-desc');
+    var inner = document.querySelector('.film-strip-inner');
+    if (!featured || !inner) return;
+
+    // 카테고리별 데이터 — 사진 추가 시 여기에 입력
+    var galleryData = {
+        '영어뮤지컬': {
+            main: { src: 'images/musical-main.jpg', caption: '🎪 장소', desc: '설명을 입력하세요' },
+            frames: [
+                { src: 'images/musical-main.jpg', place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus2.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus3.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus4.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus5.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus6.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' }
+            ]
+        },
+        '배낭여행': {
+            main: { src: 'images/campus1.jpg', caption: '📍 장소', desc: '설명을 입력하세요' },
+            frames: [
+                { src: 'images/campus1.jpg', place: '📍 장소', date: '2024.01', caption: '📍 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus2.jpg', place: '📍 장소', date: '2024.02', caption: '📍 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus3.jpg', place: '📍 장소', date: '2024.03', caption: '📍 장소', desc: '설명을 입력하세요' }
+            ]
+        },
+        '교회사역': {
+            main: { src: 'images/campus4.jpg', caption: '📍 장소', desc: '설명을 입력하세요' },
+            frames: [
+                { src: 'images/campus4.jpg', place: '📍 장소', date: '2024.04', caption: '📍 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus5.jpg', place: '📍 장소', date: '2024.06', caption: '📍 장소', desc: '설명을 입력하세요' },
+                { src: 'images/campus6.jpg', place: '📍 장소', date: '2024.08', caption: '📍 장소', desc: '설명을 입력하세요' }
+            ]
+        }
+    };
+
+    function buildFrames(frames) {
+        var html = '';
+        frames.forEach(function(f, i) {
+            html += '<div class="film-frame' + (i === 0 ? ' active' : '') + '"'
+                  + ' data-src="' + f.src + '"'
+                  + ' data-caption="' + f.caption + '"'
+                  + ' data-desc="' + f.desc + '">'
+                  + '<img src="' + f.src + '" alt="">'
+                  + '<div class="film-label">'
+                  + '<span class="film-place">' + f.place + '</span>'
+                  + '</div></div>';
+        });
+        return html;
+    }
+
+    function loadCategory(name) {
+        var data = galleryData[name];
+        if (!data) return;
+
+        // 메인 이미지 교체
+        gsap.to(featured, { opacity: 0, duration: 0.2, onComplete: function() {
+            featured.src = data.main.src;
+            caption.textContent = data.main.caption;
+            if (desc) desc.textContent = data.main.desc;
+            gsap.to(featured, { opacity: 1, duration: 0.3 });
+        }});
+
+        // 필름 재구성 (원본 + 복제본)
+        var framesHTML = buildFrames(data.frames);
+        inner.innerHTML = framesHTML + framesHTML;
+
+        // 애니메이션 재시작
+        inner.style.animation = 'none';
+        inner.offsetHeight; // reflow
+        inner.style.animation = '';
+    }
+
+    // 카테고리 버튼 클릭
+    document.querySelectorAll('.gallery-cat').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.gallery-cat').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            loadCategory(btn.textContent.trim());
+        });
+    });
+
+    // 필름 프레임 클릭 (이벤트 위임)
+    inner.addEventListener('click', function(e) {
+        var frame = e.target.closest('.film-frame');
+        if (!frame) return;
+        document.querySelectorAll('.film-frame').forEach(function(f) { f.classList.remove('active'); });
+        document.querySelectorAll('.film-frame[data-src="' + frame.dataset.src + '"]').forEach(function(f) { f.classList.add('active'); });
+        gsap.to(featured, { opacity: 0, duration: 0.2, onComplete: function() {
+            featured.src = frame.dataset.src;
+            caption.textContent = frame.dataset.caption;
+            if (desc) desc.textContent = frame.dataset.desc || '';
+            gsap.to(featured, { opacity: 1, duration: 0.3 });
+        }});
+    });
+
+    // 초기 로드
+    loadCategory('🎪 영어뮤지컬');
+}());
