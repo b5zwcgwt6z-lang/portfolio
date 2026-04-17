@@ -400,35 +400,41 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
     var caption = document.getElementById('gallery-caption');
     var desc = document.getElementById('gallery-desc');
     var inner = document.querySelector('.film-strip-inner');
+    var filmStrip = document.querySelector('.film-strip');
     if (!featured || !inner) return;
+
+    var filmTween = null;
+    var isDragging = false;
+    var startY = 0;
+    var currentY = 0;
 
     // 카테고리별 데이터 — 사진 추가 시 여기에 입력
     var galleryData = {
-        '영어뮤지컬': {
-            main: { src: 'images/musical-main.jpg', caption: '🎪 장소', desc: '설명을 입력하세요' },
+        '🎪 영어뮤지컬': {
+            main: { src: 'images/musical-main.jpg', caption: '🎪 Duddenly - 영어 뮤지컬 동아리', desc: "2023년 3월 ~ 2023년 11월 | 학과 대표 영어뮤지컬 동아리 'Duddenly'의 총감독으로 1년간 24명의 단원을 통솔하며, 영화 <위대한 쇼맨>을 무대화하여 약 150명의 관객을 동원하며 성황리에 마무리했습니다." },
             frames: [
-                { src: 'images/musical-main.jpg', place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus2.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus3.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus4.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus5.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus6.jpg',       place: '🎪 장소', caption: '🎪 장소', desc: '설명을 입력하세요' }
+                { src: 'images/musical-main.jpg', place: '🎪 Duddenly', caption: '🎪 Duddenly - 영어 뮤지컬 동아리', desc: "2023년 3월 ~ 2023년 11월 | 학과 대표 영어뮤지컬 동아리 'Duddenly'의 총감독으로 1년간 24명의 단원을 통솔하며, 영화 <위대한 쇼맨>을 무대화하여 약 150명의 관객을 동원하며 성황리에 마무리했습니다." },
+                { src: 'images/muscial1.png', place: '🎪 연습현장', caption: '🎪 연습현장', desc: '공연을 위한 열정적인 연습 시간' },
+                { src: 'images/campus3.jpg', place: '🎪 무대뒤', caption: '🎪 무대뒤', desc: '긴장감 넘치는 백스테이지' },
+                { src: 'images/campus4.jpg', place: '🎪 리허설', caption: '🎪 리허설', desc: '최종 점검 리허설' },
+                { src: 'images/campus5.jpg', place: '🎪 공연중', caption: '🎪 공연중', desc: '관객과 하나되는 순간' },
+                { src: 'images/campus6.jpg', place: '🎪 단체사진', caption: '🎪 단체사진', desc: '공연을 마친 후 단원들과 함께' }
             ]
         },
         '배낭여행': {
-            main: { src: 'images/campus1.jpg', caption: '📍 장소', desc: '설명을 입력하세요' },
+            main: { src: 'images/campus1.jpg', caption: '📍 유럽 배낭여행', desc: '2024년 1월 ~ 2월 | 영국, 프랑스, 스위스, 이탈리아 등 6개국을 돌며 넓은 세상을 경험하고 기록했습니다.' },
             frames: [
-                { src: 'images/campus1.jpg', place: '📍 장소', date: '2024.01', caption: '📍 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus2.jpg', place: '📍 장소', date: '2024.02', caption: '📍 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus3.jpg', place: '📍 장소', date: '2024.03', caption: '📍 장소', desc: '설명을 입력하세요' }
+                { src: 'images/campus1.jpg', place: '📍 런던', date: '2024.01', caption: '📍 런던 타워브릿지', desc: '유럽 여행의 첫 시작' },
+                { src: 'images/campus2.jpg', place: '📍 파리', date: '2024.02', caption: '📍 파리 에펠탑', desc: '낭만이 가득한 파리 시내' },
+                { src: 'images/campus3.jpg', place: '📍 인터라켄', date: '2024.02', caption: '📍 스위스 융프라우', desc: '눈부신 설경의 알프스' }
             ]
         },
         '교회사역': {
-            main: { src: 'images/campus4.jpg', caption: '📍 장소', desc: '설명을 입력하세요' },
+            main: { src: 'images/campus4.jpg', caption: '📍 교회 사역', desc: '봉사와 헌신을 통해 나눔의 가치를 실천하고 팀워크를 배웠습니다.' },
             frames: [
-                { src: 'images/campus4.jpg', place: '📍 장소', date: '2024.04', caption: '📍 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus5.jpg', place: '📍 장소', date: '2024.06', caption: '📍 장소', desc: '설명을 입력하세요' },
-                { src: 'images/campus6.jpg', place: '📍 장소', date: '2024.08', caption: '📍 장소', desc: '설명을 입력하세요' }
+                { src: 'images/campus4.jpg', place: '📍 수련회', date: '2024.04', caption: '📍 여름 수련회', desc: '함께 기도하고 성장하는 시간' },
+                { src: 'images/campus5.jpg', place: '📍 봉사활동', date: '2024.06', caption: '📍 지역사회 봉사', desc: '이웃에게 사랑을 전하는 활동' },
+                { src: 'images/campus6.jpg', place: '📍 성가대', date: '2024.08', caption: '📍 찬양 사역', desc: '음악으로 전하는 메시지' }
             ]
         }
     };
@@ -448,11 +454,36 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
         return html;
     }
 
+    function initAnimation() {
+        if (filmTween) filmTween.kill();
+        
+        var limit = inner.offsetHeight / 2;
+        var curY = gsap.getProperty(inner, "y");
+        
+        if (curY > 0) curY -= limit;
+        if (curY < -limit) curY += limit;
+        gsap.set(inner, { y: curY });
+
+        var remainingDist = Math.abs(-limit - curY);
+        var totalDist = limit;
+        var baseDuration = 25; 
+        var duration = (remainingDist / totalDist) * baseDuration;
+
+        filmTween = gsap.to(inner, {
+            y: -limit,
+            duration: duration,
+            ease: "none",
+            onComplete: function() {
+                gsap.set(inner, { y: 0 });
+                initAnimation(); 
+            }
+        });
+    }
+
     function loadCategory(name) {
         var data = galleryData[name];
         if (!data) return;
 
-        // 메인 이미지 교체
         gsap.to(featured, { opacity: 0, duration: 0.2, onComplete: function() {
             featured.src = data.main.src;
             caption.textContent = data.main.caption;
@@ -460,17 +491,53 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
             gsap.to(featured, { opacity: 1, duration: 0.3 });
         }});
 
-        // 필름 재구성 (원본 + 복제본)
         var framesHTML = buildFrames(data.frames);
         inner.innerHTML = framesHTML + framesHTML;
-
-        // 애니메이션 재시작
-        inner.style.animation = 'none';
-        inner.offsetHeight; // reflow
-        inner.style.animation = '';
+        
+        setTimeout(function() {
+            gsap.set(inner, { y: 0 });
+            initAnimation();
+        }, 100);
     }
 
-    // 카테고리 버튼 클릭
+    // --- 드래그 로직 ---
+    filmStrip.addEventListener('mousedown', function(e) {
+        e.preventDefault(); 
+        isDragging = true;
+        startY = e.clientY;
+        currentY = gsap.getProperty(inner, "y");
+        if (filmTween) filmTween.kill();
+        inner.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        var deltaY = e.clientY - startY;
+        var nextY = currentY + deltaY;
+        var limit = inner.offsetHeight / 2;
+
+        if (nextY > 0) { nextY -= limit; startY += limit; }
+        else if (nextY < -limit) { nextY += limit; startY -= limit; }
+        
+        gsap.set(inner, { y: nextY });
+    });
+
+    window.addEventListener('mouseup', function() {
+        if (!isDragging) return;
+        isDragging = false;
+        inner.style.cursor = 'grab';
+        initAnimation(); 
+    });
+
+    filmStrip.addEventListener('mouseenter', function() {
+        if (!isDragging && filmTween) filmTween.pause();
+    });
+    filmStrip.addEventListener('mouseleave', function() {
+        if (!isDragging) {
+            initAnimation();
+        }
+    });
+
     document.querySelectorAll('.gallery-cat').forEach(function(btn) {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.gallery-cat').forEach(function(b) { b.classList.remove('active'); });
@@ -479,7 +546,6 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
         });
     });
 
-    // 필름 프레임 클릭 (이벤트 위임)
     inner.addEventListener('click', function(e) {
         var frame = e.target.closest('.film-frame');
         if (!frame) return;
@@ -493,6 +559,5 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
         }});
     });
 
-    // 초기 로드
     loadCategory('🎪 영어뮤지컬');
 }());
