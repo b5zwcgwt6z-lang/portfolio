@@ -1263,14 +1263,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  animation: filmScroll 22s linear infinite;
-}
-.film-strip:hover .film-strip-inner {
-  animation-play-state: paused;
-}
-@keyframes filmScroll {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
+  cursor: grab;
 }
 .film-frame {
   cursor: pointer;
