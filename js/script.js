@@ -230,25 +230,82 @@ links.forEach(function(link) {
     });
 });
 
-// 6. 배지 둥둥 떠다니는 애니메이션 (강화 버전)
-const badges = document.querySelectorAll('.img-badge');
-badges.forEach(function(badge, index) {
-    const floating = gsap.to(badge, {
-        y: index % 2 === 0 ? 12 : -12,
-        duration: 2 + (index * 0.4),
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
+// 6. 배지 둥둥 떠다니는 애니메이션
+function startBadgeFloat() {
+    var badges = document.querySelectorAll('.img-badge');
+    var tweens = [];
+    badges.forEach(function(badge, index) {
+        var floating = gsap.to(badge, {
+            y: index % 2 === 0 ? 12 : -12,
+            duration: 2 + (index * 0.4),
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        badge.addEventListener('mouseenter', function() { floating.pause(); });
+        badge.addEventListener('mouseleave', function() { floating.resume(); });
+        tweens.push(floating);
     });
+    return tweens;
+}
 
-    badge.addEventListener('mouseenter', function() {
-        floating.pause();
-    });
+// 7. hammer + 말풍선 wiggle + 클릭 시 scene2 전환 / replay
+(function() {
+    var box = document.querySelector('.main-img-box');
+    var hammer = box && box.querySelector('.scene-hammer');
+    var bubble = box && box.querySelector('.scene-bubble');
+    var replay = box && box.querySelector('.scene-replay');
+    if (!box || !hammer) return;
 
-    badge.addEventListener('mouseleave', function() {
-        floating.resume();
+    var hammerTween = null;
+    var bubbleTween = null;
+
+    function startWiggle() {
+        hammerTween = gsap.to(hammer, {
+            '--wiggle': '-25deg', duration: 1.2, ease: 'power1.inOut', repeat: -1, repeatDelay: 0.3
+        });
+        if (bubble) {
+            bubbleTween = gsap.to(bubble, {
+                '--wiggle': '8deg', duration: 1.2, ease: 'power1.inOut', repeat: -1, repeatDelay: 0.3
+            });
+        }
+    }
+    function stopWiggle() {
+        if (hammerTween) hammerTween.kill();
+        if (bubbleTween) bubbleTween.kill();
+        gsap.set(hammer, { '--wiggle': '0deg' });
+        if (bubble) gsap.set(bubble, { '--wiggle': '0deg' });
+    }
+
+    function showBadges() {
+        document.querySelectorAll('.img-badge').forEach(function(b) { b.hidden = false; });
+        startBadgeFloat();
+    }
+    function hideBadges() {
+        gsap.killTweensOf('.img-badge');
+        document.querySelectorAll('.img-badge').forEach(function(b) {
+            b.hidden = true;
+            gsap.set(b, { clearProps: 'all' });
+        });
+    }
+
+    function goScene2() {
+        stopWiggle();
+        box.classList.add('scene2');
+        gsap.delayedCall(0.6, showBadges);
+    }
+    function goScene1() {
+        hideBadges();
+        box.classList.remove('scene2');
+        startWiggle();
+    }
+
+    startWiggle();
+    hammer.addEventListener('click', function() {
+        if (!box.classList.contains('scene2')) goScene2();
     });
-});
+    if (replay) replay.addEventListener('click', goScene1);
+})();
 
 // 8. Archive 카드 레벨 캐러셀
 document.querySelectorAll('.archive-cards').forEach(function(archiveEl) {
@@ -416,21 +473,20 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
                 { src: 'images/musical-main.jpg', place: '🎪 Duddenly', caption: '🎪 Duddenly - 영어 뮤지컬 동아리', desc: "2023년 3월 ~ 2023년 11월 | 학과 대표 영어뮤지컬 동아리 'Duddenly'의 총감독으로 1년간 24명의 단원을 통솔하며, 영화 <위대한 쇼맨>을 무대화하여 약 150명의 관객을 동원하며 성황리에 마무리했습니다." },
                 { src: 'images/musical1.jpeg', place: '🎪 연습현장', caption: '🎪 연습현장', desc: '공연을 위한 열정적인 연습 시간' },
                 { src: 'images/musical2.png', place: '🎪 무대뒤', caption: '🎪 무대뒤', desc: '긴장감 넘치는 백스테이지', imgStyle: 'object-fit:contain;background:#111;', featStyle: '70% center' },
-                { src: 'images/campus4.jpg', place: '🎪 리허설', caption: '🎪 리허설', desc: '최종 점검 리허설' },
-                { src: 'images/campus5.jpg', place: '🎪 공연중', caption: '🎪 공연중', desc: '관객과 하나되는 순간' },
-                { src: 'images/campus6.jpg', place: '🎪 단체사진', caption: '🎪 단체사진', desc: '공연을 마친 후 단원들과 함께' }
+                { src: 'images/campus4.jpg', place: '🎪 리허설', caption: '🎪 리허설', desc: '최종 점검 리허설' }
             ]
         },
         '✈️ 배낭여행': {
-            main: { src: 'images/campus1.jpg', caption: '✈️ 유럽 배낭여행', desc: '2024년 1월 ~ 2월 | 영국, 프랑스, 스위스, 이탈리아 등 6개국을 돌며 넓은 세상을 경험하고 기록했습니다.' },
+            main: { src: 'images/trip1.jpg', caption: '✈️ 유럽 배낭여행', desc: '2024년 1월 ~ 2월 | 영국, 프랑스, 스위스, 이탈리아 등 6개국을 돌며 넓은 세상을 경험하고 기록했습니다.' },
             frames: [
-                { src: 'images/campus1.jpg', place: '✈️ 런던', date: '2024.01', caption: '✈️ 런던 타워브릿지', desc: '유럽 여행의 첫 시작' },
-                { src: 'images/campus2.jpg', place: '✈️ 파리', date: '2024.02', caption: '✈️ 파리 에펠탑', desc: '낭만이 가득한 파리 시내' },
-                { src: 'images/campus3.jpg', place: '✈️ 인터라켄', date: '2024.02', caption: '✈️ 스위스 융프라우', desc: '눈부신 설경의 알프스' }
+                { src: 'images/trip1.jpg', place: '✈️ 런던', date: '2024.01', caption: '✈️ 런던 타워브릿지', desc: '유럽 여행의 첫 시작' },
+                { src: 'images/trip2.jpg', place: '✈️ 런던', date: '2024.01', caption: '✈️ 런던 타워브릿지', desc: '유럽 여행의 첫 시작' },
+                { src: 'images/trip3.PNG', place: '✈️ 파리', date: '2024.02', caption: '✈️ 파리 에펠탑', desc: '낭만이 가득한 파리 시내', featStyle: 'center bottom' },
+                { src: 'images/trip4.jpg', place: '✈️ 인터라켄', date: '2024.02', caption: '✈️ 스위스 융프라우', desc: '눈부신 설경의 알프스' }
             ]
         },
         '⛪ 교회사역': {
-            main: { src: 'images/campus4.jpg', caption: '⛪ 교회 사역', desc: '봉사와 헌신을 통해 나눔의 가치를 실천하고 팀워크를 배웠습니다.' },
+            main: { src: 'images/church1.jpg', caption: '⛪ 교회 사역', desc: '봉사와 헌신을 통해 나눔의 가치를 실천하고 팀워크를 배웠습니다.' },
             frames: [
                 { src: 'images/campus4.jpg', place: '⛪ 수련회', date: '2024.04', caption: '⛪ 여름 수련회', desc: '함께 기도하고 성장하는 시간' },
                 { src: 'images/campus5.jpg', place: '🙏 봉사활동', date: '2024.06', caption: '🙏 지역사회 봉사', desc: '이웃에게 사랑을 전하는 활동' },
