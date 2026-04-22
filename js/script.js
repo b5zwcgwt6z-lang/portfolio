@@ -472,7 +472,7 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
             frames: [
                 { src: 'images/musical-main.jpg', place: '🎪 Duddenly', caption: '🎪 Duddenly - 영어 뮤지컬 동아리', desc: "2023년 3월 ~ 2023년 11월 | 학과 대표 영어뮤지컬 동아리 'Duddenly'의 총감독으로 1년간 24명의 단원을 통솔하며, 영화 <위대한 쇼맨>을 무대화하여 약 150명의 관객을 동원하며 성황리에 마무리했습니다." },
                 { src: 'images/musical1.jpeg', place: '🎪 연습현장', caption: '🎪 연습현장', desc: '공연을 위한 열정적인 연습 시간' },
-                { src: 'images/musical2.png', place: '🎪 무대뒤', caption: '🎪 무대뒤', desc: '긴장감 넘치는 백스테이지', imgStyle: 'object-fit:contain;background:#111;', featStyle: '70% center' },
+                { src: 'images/musical2.jpg', place: '🎪 무대뒤', caption: '🎪 무대뒤', desc: '긴장감 넘치는 백스테이지', imgStyle: 'object-fit:contain;background:#111;', featStyle: '70% center' },
                 { src: 'images/campus4.jpg', place: '🎪 리허설', caption: '🎪 리허설', desc: '최종 점검 리허설' }
             ]
         },
@@ -488,9 +488,9 @@ document.querySelectorAll('.aizone-like-group').forEach(function(group) {
         '⛪ 교회사역': {
             main: { src: 'images/church1.jpg', caption: '⛪ 교회 사역', desc: '봉사와 헌신을 통해 나눔의 가치를 실천하고 팀워크를 배웠습니다.' },
             frames: [
-                { src: 'images/campus4.jpg', place: '⛪ 수련회', date: '2024.04', caption: '⛪ 여름 수련회', desc: '함께 기도하고 성장하는 시간' },
-                { src: 'images/campus5.jpg', place: '🙏 봉사활동', date: '2024.06', caption: '🙏 지역사회 봉사', desc: '이웃에게 사랑을 전하는 활동' },
-                { src: 'images/campus6.jpg', place: '🎵 성가대', date: '2024.08', caption: '🎵 찬양 사역', desc: '음악으로 전하는 메시지' }
+                { src: 'images/church1.jpg', place: '⛪ 수련회', date: '2024.04', caption: '⛪ 여름 수련회', desc: '함께 기도하고 성장하는 시간' },
+                { src: 'images/church2.jpg', place: '🙏 봉사활동', date: '2024.06', caption: '🙏 지역사회 봉사', desc: '이웃에게 사랑을 전하는 활동' },
+                { src: 'images/church2.PNG', place: '🎵 성가대', date: '2024.08', caption: '🎵 찬양 사역', desc: '음악으로 전하는 메시지' }
             ]
         }
     };
